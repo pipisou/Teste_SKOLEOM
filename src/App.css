@@ -1,94 +1,126 @@
-/* Assure que la racine prend toute la hauteur */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8fafc;
+  color: #1f2937;
 }
 
 .app-container {
   display: flex;
   flex-direction: column;
-  align-items: center;      /* centre horizontalement */
-  justify-content: flex-start;
-  min-height: 100vh;        /* pleine hauteur de la page */
-  background-color: #f0f2f5;
+  align-items: center;
   padding: 2rem;
-  box-sizing: border-box;
+  min-height: 100vh;
+  background: linear-gradient(to right, #f1f5f9, #e0f2fe);
 }
 
-/* Titre centré */
 .app-container h1 {
-  margin-bottom: 1rem;
-  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #0f172a;
 }
 
-/* Conteneur du tableau */
 .table-container {
   width: 100%;
-  max-width: 1200px;        /* largeur max */
+  max-width: 1200px;
   background-color: white;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
   overflow-x: auto;
+  transition: all 0.3s ease;
 }
 
-/* Tableau */
 table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  min-width: 1000px;
 }
 
 th, td {
-  padding: 0.75rem;
-  border-bottom: 1px solid #ddd;
+  padding: 1rem;
   text-align: left;
 }
 
 th {
-  background-color: #f1f1f1;
-  font-weight: bold;
+  background-color: #e2e8f0;
+  color: #1e293b;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 0;
   cursor: pointer;
+  user-select: none;
+}
+
+tr {
+  transition: background-color 0.2s ease;
 }
 
 tr:hover {
-  background-color: #f9f9f9;
+  background-color: #f1f5f9;
 }
 
-/* Barre de recherche */
+td {
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 0.95rem;
+  color: #334155;
+}
+
 .search-bar-container {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 40px;
+  margin-bottom: 2rem;
+}
+
+.search-input-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
 }
 
 .search-bar-input {
   width: 100%;
-  max-width: 600px;
-  padding: 16px;
-  font-size: 18px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  padding: 0.85rem 3rem 0.85rem 1.25rem; /* padding-right augmenté pour l’icône */
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 9999px;
   outline: none;
-  box-sizing: border-box; /* Très important pour bien gérer la largeur */
+  box-shadow: 0 0 0 3px transparent;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
 }
 
 .search-bar-input:focus {
   border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.4);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
+.search-icon {
+  position: absolute;
+  right: 1rem;       /* un peu d’espace à droite */
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.25rem;
+  color: #94a3b8;    /* couleur gris clair */
+  pointer-events: none; /* pour que le clic passe à l’input */
+}
+
+
+/* Modal stylisé */
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(15, 23, 42, 0.6);
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 50;
 }
 
 .modal-content {
@@ -96,7 +128,7 @@ tr:hover {
   padding: 30px;
   border-radius: 10px;
   width: 100%;
-  max-width: 500px;
+  max-width: 400px; /* ↓ réduit de 500 à 400 */
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
   box-sizing: border-box;
   overflow-y: auto;
@@ -104,42 +136,33 @@ tr:hover {
 }
 
 .modal-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
-
-.modal-section {
-  margin-bottom: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #1e293b;
+  margin-bottom: 1.25rem;
+  border-bottom: 1px solid #e2e8f0;
+  padding-bottom: 0.5rem;
 }
 
 .modal-section h3 {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 8px;
-  color: #333;
-}
-
-.modal-section p {
-  margin: 4px 0;
-  line-height: 1.4;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  color: #1f2937;
 }
 
 .modal-close-button {
-  margin-top: 20px;
-  padding: 10px 16px;
-  background-color: #007bff;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  background-color: #2563eb;
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s ease;
   width: 100%;
 }
 
 .modal-close-button:hover {
-  background-color: #0056b3;
+  background-color: #1d4ed8;
 }

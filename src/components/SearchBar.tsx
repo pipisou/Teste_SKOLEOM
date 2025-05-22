@@ -6,7 +6,8 @@ interface Props {
 }
 
 const SearchBarComponent = ({ search, onSearch }: Props) => (
-  <div className="search-bar-container">
+<div className="search-bar-container">
+  <div className="search-input-wrapper">
     <input
       type="text"
       value={search}
@@ -14,7 +15,10 @@ const SearchBarComponent = ({ search, onSearch }: Props) => (
       placeholder="Rechercher par nom ou email..."
       className="search-bar-input"
     />
+    <span className="search-icon">🔍</span> 
   </div>
+</div>
+
 );
 
 export const SearchBar = React.memo(SearchBarComponent);

@@ -3,6 +3,7 @@ import { useState, useCallback } from "react";
 import { SearchBar } from "./components/SearchBar";
 import { UserTable } from "./components/UserTable";
 import { UserDetailModal } from "./components/UserDetailModal";
+import { FaUsers } from "react-icons/fa";
 import './App.css';
 import { User } from "./types/User"
 
@@ -29,7 +30,10 @@ function App() {
 
   return (
     <div className="app-container">
-      <h1>Liste des utilisateurs</h1>
+        <h1>
+    <FaUsers style={{ marginRight: "10px", color: "#3b82f6" }} />
+    Liste des utilisateurs
+  </h1>
   
       <SearchBar search={search} onSearch={setSearch} />
   
