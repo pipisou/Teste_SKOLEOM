@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { UserTable } from '../UserTable';
-import { User } from '../UserTable';
+import { User } from '../../types/User';
 
 const mockUsers: User[] = [
   {
