@@ -1,28 +1,5 @@
-import { useMemo } from "react";
-
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
+import React, { useMemo } from "react";
+import { User } from "../types/User"
 
 interface Props {
   users: User[];
@@ -35,7 +12,7 @@ interface Props {
   perPage: number;
 }
 
-export const UserTable = ({
+const UserTableComponent = ({
   users,
   onSelect,
   search,
@@ -45,7 +22,6 @@ export const UserTable = ({
   currentPage,
   perPage,
 }: Props) => {
-
   const filtered = useMemo(() => {
     const lowerSearch = search.toLowerCase();
     return users.filter(
@@ -100,3 +76,6 @@ export const UserTable = ({
     </table>
   );
 };
+
+// Export du composant mémoïsé
+export const UserTable = React.memo(UserTableComponent);

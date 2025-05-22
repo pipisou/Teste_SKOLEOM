@@ -4,30 +4,7 @@ import { SearchBar } from "./components/SearchBar";
 import { UserTable } from "./components/UserTable";
 import { UserDetailModal } from "./components/UserDetailModal";
 import './App.css';
-
-export interface User {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    };
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  };
-}
+import { User } from "./types/User"
 
 function App() {
   const { users, error, loading } = useUsers();
