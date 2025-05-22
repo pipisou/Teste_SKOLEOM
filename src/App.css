@@ -1,0 +1,76 @@
+/* Occupation totale de l'écran */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+/* Conteneur principal */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;      /* ✅ Centre horizontalement */
+  justify-content: flex-start;
+  min-height: 100%;
+  background-color: #f0f2f5;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+/* Titre centré */
+h1 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Zone contenant le tableau, centrée et large */
+.table-container {
+  width: 100%;
+  max-width: 1200px;        /* ✅ Largeur maximale pour bien l'agrandir */
+  background-color: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  overflow-x: auto;
+}
+
+/* Tableau stylé */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
+}
+.search-input {
+  width: 100%;
+  max-width: 500px;
+  padding: 12px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
